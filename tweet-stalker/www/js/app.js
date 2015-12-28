@@ -49,6 +49,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+    .state('app.timeline', {
+        url: '/timeline',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/timeline.html',
+            controller: 'TimeLineCtrl'
+          }
+        }
+      })
     .state('app.playlists', {
       url: '/playlists',
       views: {
@@ -67,7 +76,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'PlaylistCtrl'
       }
     }
+  })
+  .state('app.newStalk', {
+    url: '/stalk/new',
+    views: {
+      'menuContent' : {
+        templateUrl: 'templates/stalk-new.html',
+        controller: 'StalkCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/timeline');
 });

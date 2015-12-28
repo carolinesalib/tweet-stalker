@@ -53,4 +53,45 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('TimeLineCtrl', function($scope, twitterAPIService) {
+  // twitterAPIService.clearCache();
+  twitterAPIService.initialize();
+  $scope.isConnected = twitterAPIService.isReady();
+  if($scope.isConnected){
+    getTweets();
+  }
+  $scope.connectTwitter = function(){
+    twitterAPIService.connectTwitter().then(function(){
+      if(twitterAPIService.isReady()){
+        $scope.isConnected = true;
+        getTweets();
+      }
+    });
+  };
+
+  function getTweets(){
+    twitterAPIService.getLatestTweets().then(function(data) {
+        $scope.tweets = data;
+    }, function() {
+        $scope.rateLimitError = true;
+    });
+  };
+})
+.controller('StalkCtrl', function($scope, Stalks){
+  $scope.stalks = Stalks.all();
+  $scope.activeStalk = $scope.stalks[Stalks.getLastActiveIndex()];
+  $scope.createStalk = function(username){
+    var newStalk = Stalks.newStalk(username);
+    $scope.stalks.push(newStalk);
+    Stalks.save($scope.stalks);
+    $scope.selectStalk(newStalk, $scope.stalks.length - 1);
+  };
+  $scope.selectStalk = function(stalk, index) {
+   $scope.activeProject = stalk;
+   Stalks.setLastActiveIndex(index);
+ };
+}).controller('MenuCtrl', function($scope, Stalks){
+  $scope.stalks = Stalks.all();
 });
