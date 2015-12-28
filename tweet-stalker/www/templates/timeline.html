@@ -2,22 +2,27 @@
   <ion-content>
     <ion-list>
     <ion-item class="item card-item" ng-repeat="tweet in tweets">
-        <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
-            <div class="item item-avatar item-text-wrap">
-                <span class="avatar" style="background-image: url('{{tweet.user.profile_image_url}}');"></span>
-                <strong>{{tweet.user.name}}</strong>
-                <p>{{tweet.text}}</p>
-                <div class="card-footer text-right">
-                    <i class="icon ion-shuffle"></i> {{tweet.retweet_count}}
-                    <i class="icon ion-heart"></i> {{tweet.favorite_count}}
-                    <div class="pull-left">
-                        <i class="icon ion-clock"></i> {{tweet.created_at | date:'yyyy-MM-dd HH:mm'}}
-                    </div>
-                </div>
-            </div>
+        <div class="list card">
+          <div class="item item-avatar">
+            <img src="{{tweet.user.profile_image_url}}">
+            <h2>{{tweet.user.name}}</h2>
+            <p>{{tweet.created_at | date:'yyyy-MM-dd HH:mm'}}</p>
+          </div>
+
+          <div class="item item-body">
+            <!-- <img class="full-image" src="delorean.jpg"> -->
+            <p>
+              {{tweet.text}}
+            </p>
+            <p style="text-align: -webkit-right;">
+              <a href="#" class="icon ion-arrow-return-right subdued"> {{tweet.retweet_count}}</a>
+              <a href="#" class="icon ion-heart subdued"> {{tweet.favorite_count}}</a>
+            </p>
+          </div>
         </div>
     </ion-item>
     </ion-list>
+
     <button ng-click="connectTwitter()" class="button button-block button-positive" ng-show="!isConnected">
       Connect to my twitter!
     </button>
