@@ -1,0 +1,2 @@
+class Stalk < ApplicationRecord
+end
