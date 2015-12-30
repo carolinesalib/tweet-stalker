@@ -1,0 +1,25 @@
+<ion-view view-title="Browse">
+  <ion-content>
+    <form name="newStalkForm">
+      <label class="item item-input">
+        <input type="number" placeholder="Twitter user id" ng-model="stalk.twitter_user_id">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Url" ng-model="stalk.url">
+      </label>
+      <label class="item item-input">
+        Notificar?
+        <label class="toggle">
+         <input type="checkbox" ng-model="stalk.notification">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+      </label>
+      {{stalk}}
+      <button class="button button-block button-positive" ng-click="saveStalk(stalk)">
+        Adicionar
+      </button>
+    </form>
+  </ion-content>
+</ion-view>
