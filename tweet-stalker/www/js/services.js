@@ -78,4 +78,15 @@ angular.module('starter').factory('twitterAPIService', function($q) {
       window.localStorage['lastActiveProject'] = index;
     }
   }
+}).
+factory('Stalk', function($resource) {
+  return $resource("http://localhost:3000/api/v1/stalks/:id", { id: "@id" },
+    {
+      'create':  { method: 'POST' },
+      'index':   { method: 'GET', isArray: true },
+      'show':    { method: 'GET', isArray: false },
+      'update':  { method: 'PUT' },
+      'destroy': { method: 'DELETE' }
+    }
+  );
 });

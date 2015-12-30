@@ -41,20 +41,6 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-})
-
 .controller('TimeLineCtrl', function($scope, twitterAPIService) {
   // twitterAPIService.clearCache();
   twitterAPIService.initialize();
@@ -92,6 +78,16 @@ angular.module('starter.controllers', [])
    $scope.activeProject = stalk;
    Stalks.setLastActiveIndex(index);
  };
-}).controller('MenuCtrl', function($scope, Stalks){
-  $scope.stalks = Stalks.all();
+})
+.controller('MenuCtrl', function($scope, Stalk){
+  $scope.stalks = Stalk.index();
+}).
+controller('NewStalkCtrl', function($scope, Stalk){
+  $scope.stalk = {"twitter_user_id" : 0,
+                  "url" : "",
+                  "notification" : false};
+  $scope.saveStalk = function(stalk){
+    Stalk.create(stalk)
+  };
+
 });

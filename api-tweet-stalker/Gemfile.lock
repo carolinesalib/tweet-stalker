@@ -124,6 +124,7 @@ GEM
     puma (2.15.3)
     rack (2.0.0.alpha)
       json
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails-deprecated_sanitizer (1.0.3)
@@ -161,6 +162,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   puma
+  rack-cors
   rails!
   spring
   sqlite3
