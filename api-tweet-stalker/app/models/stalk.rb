@@ -1,2 +1,0 @@
-class Stalk < ApplicationRecord
-end
