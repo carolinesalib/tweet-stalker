@@ -1,1 +1,2 @@
-api-tweet-stalker/config/secrets.yml
+/.bundle
+config/secrets.yml
