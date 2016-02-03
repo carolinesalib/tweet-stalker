@@ -10,10 +10,25 @@
         "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.ionicframework.myapp408182"
         },
+        "com.oauthio.plugins.oauthio": {
+            "PACKAGE_NAME": "com.ionicframework.myapp408182"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.myapp408182"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.myapp408182"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.myapp408182"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.myapp408182"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.myapp408182"
+        },
+        "org.apache.cordova.labs.keyboard": {
             "PACKAGE_NAME": "com.ionicframework.myapp408182"
         }
     },

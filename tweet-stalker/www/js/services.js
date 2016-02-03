@@ -38,10 +38,8 @@ angular.module('starter').factory('twitterAPIService', function($q) {
         getLatestTweets: function(maxId) {
             //create a deferred object using Angular's $q service
             var deferred = $q.defer();
-            var url = '/1.1/statuses/home_timeline.json';
-            if (maxId) {
-                url += '?max_id=' + maxId;
-            }
+            var url = '/1.1/statuses/user_timeline.json?screen_name=tamaraselau&count=2';
+
             var promise = authorizationResult.get(url).done(function(data) {
                 // https://dev.twitter.com/docs/api/1.1/get/statuses/home_timeline
                 // when the data is retrieved resolve the deferred object
