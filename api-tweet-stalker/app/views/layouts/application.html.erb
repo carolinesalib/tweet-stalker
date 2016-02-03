@@ -8,7 +8,22 @@
 </head>
 <body>
 
-<%= yield %>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        TweetStalker
+      </a>
+      <% if current_user %>
+      <p class="navbar-text navbar-right">Usuário logado: <%= current_user.name %></p>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
